@@ -17,7 +17,6 @@ return function(tbl)
     {},
     {
       ["silent"]=Bool,
-      ["progress"]=Bool,
       ["trickle"]=Bool,
       ["only-hash"]=Bool,
       ["wrap-with-directory"]=Bool,
@@ -75,10 +74,11 @@ return function(tbl)
     reader_json,
     {},
     {
-      ["format"]=String,
+      ["cid-codec"]=String,
       ["mhtype"]=String,
       ["mhlen"]=Int,
       ["pin"]=Bool,
+      ["allow-big-block"]=Bool,
     }
   )
 
@@ -170,6 +170,7 @@ return function(tbl)
     {},
     {
       ["numeric"]=Bool,
+      ["supported"]=Bool,
     }
   )
 
@@ -179,7 +180,7 @@ return function(tbl)
     {
       ["f"]=String,
       ["v"]=String,
-      ["codec"]=String,
+      ["mc"]=String,
       ["b"]=String,
     }
   )
@@ -189,6 +190,7 @@ return function(tbl)
     {},
     {
       ["numeric"]=Bool,
+      ["supported"]=Bool,
     }
   )
 
@@ -235,7 +237,6 @@ return function(tbl)
     reader_plain,
     {{String, Yes},},
     {
-      ["progress"]=Bool,
     }
   )
 
@@ -254,6 +255,7 @@ return function(tbl)
       ["pin-roots"]=Bool,
       ["silent"]=Bool,
       ["stats"]=Bool,
+      ["allow-big-block"]=Bool,
     }
   )
 
@@ -265,6 +267,7 @@ return function(tbl)
       ["input-codec"]=String,
       ["pin"]=Bool,
       ["hash"]=String,
+      ["allow-big-block"]=Bool,
     }
   )
 
@@ -279,7 +282,6 @@ return function(tbl)
     reader_json,
     {{String, Yes},},
     {
-      ["progress"]=Bool,
     }
   )
 
@@ -360,7 +362,10 @@ return function(tbl)
     {},
     {
       ["output"]=String,
-      ["cpu-profile-time"]=String,
+      ["collectors"]=Array(String),
+      ["profile-time"]=String,
+      ["mutex-profile-fraction"]=Int,
+      ["block-profile-rate"]=String,
     }
   )
 
@@ -368,14 +373,6 @@ return function(tbl)
     reader_plain,
     {},
     {
-    }
-  )
-
-  IPFS.dns = make_ipfs_endpoint("dns",
-    reader_json,
-    {{String, Yes},},
-    {
-      ["recursive"]=Bool,
     }
   )
 
@@ -521,6 +518,7 @@ return function(tbl)
     {{String, Yes},},
     {
       ["output"]=String,
+      ["format"]=String,
     }
   )
 
@@ -539,6 +537,8 @@ return function(tbl)
     {{String, Yes},},
     {
       ["ipns-base"]=String,
+      ["format"]=String,
+      ["allow-any-key-type"]=Bool,
     }
   )
 
@@ -689,14 +689,6 @@ return function(tbl)
     }
   )
 
-  IPFS.object_diff = make_ipfs_endpoint("object/diff",
-    reader_json,
-    {{String, Yes},{String, Yes},},
-    {
-      ["verbose"]=Bool,
-    }
-  )
-
   IPFS.p2p_close = make_ipfs_endpoint("p2p/close",
     reader_json,
     {},
@@ -754,7 +746,6 @@ return function(tbl)
     {{String, Yes},},
     {
       ["recursive"]=Bool,
-      ["progress"]=Bool,
     }
   )
 
@@ -903,13 +894,6 @@ return function(tbl)
     }
   )
 
-  IPFS.repo_fsck = make_ipfs_endpoint("repo/fsck",
-    reader_json,
-    {},
-    {
-    }
-  )
-
   IPFS.repo_gc = make_ipfs_endpoint("repo/gc",
     reader_json,
     {},
@@ -948,10 +932,8 @@ return function(tbl)
     {{String, No},},
     {
       ["recursive"]=Bool,
-      ["nocache"]=Bool,
       ["dht-record-count"]=Int,
       ["dht-timeout"]=String,
-      ["stream"]=Bool,
     }
   )
 
@@ -1062,6 +1044,13 @@ return function(tbl)
     }
   )
 
+  IPFS.swarm_limit = make_ipfs_endpoint("swarm/limit",
+    reader_plain,
+    {{String, Yes},},
+    {
+    }
+  )
+
   IPFS.swarm_peering_add = make_ipfs_endpoint("swarm/peering/add",
     reader_json,
     {{String, Yes},},
@@ -1094,14 +1083,7 @@ return function(tbl)
     }
   )
 
-  IPFS.tar_add = make_ipfs_endpoint("tar/add",
-    reader_json,
-    {},
-    {
-    }
-  )
-
-  IPFS.tar_cat = make_ipfs_endpoint("tar/cat",
+  IPFS.swarm_stats = make_ipfs_endpoint("swarm/stats",
     reader_plain,
     {{String, Yes},},
     {
@@ -1112,15 +1094,6 @@ return function(tbl)
     reader_plain,
     {{String, No},},
     {
-    }
-  )
-
-  IPFS.urlstore_add = make_ipfs_endpoint("urlstore/add",
-    reader_json,
-    {{String, Yes},},
-    {
-      ["trickle"]=Bool,
-      ["pin"]=Bool,
     }
   )
 
