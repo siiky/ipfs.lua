@@ -1,6 +1,7 @@
 # ipfs.lua
 
-**Lua library for the [IPFS] [HTTP API].**
+**[CHICKEN Scheme] library for the [Kubo] [RPC API], the reference [IPFS] node
+implementation.**
 
 Endpoint definitions (`ipfs-enpoints.lua`) are generated with
 `export-to-lua.scm` from [`ipfs.scm`].
@@ -73,8 +74,9 @@ ipfs:id({}, nil, {reader=true})
 ipfs:id({1, 2, 3}, {another="thing"})
 ```
 
-Also check out `example.scm`.
+Also check out `example.lua`.
 
-[HTTP API]: https://docs.ipfs.io/reference/http/api
 [IPFS]: https://ipfs.io
-[`ipfs.scm`]: https://github.com/siiky/ipfs.scm
+[Kubo]: https://github.com/ipfs/kubo
+[RPC API]: https://docs.ipfs.io/reference/kubo/rpc
+[`ipfs.scm`]: https://git.sr.ht/~siiky/ipfs.scm
