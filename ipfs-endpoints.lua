@@ -285,48 +285,6 @@ return function(tbl)
     }
   )
 
-  IPFS.dht_findpeer = make_ipfs_endpoint("dht/findpeer",
-    reader_json,
-    {{String, Yes},},
-    {
-      ["verbose"]=Bool,
-    }
-  )
-
-  IPFS.dht_findprovs = make_ipfs_endpoint("dht/findprovs",
-    reader_json,
-    {{String, Yes},},
-    {
-      ["verbose"]=Bool,
-      ["num-providers"]=Int,
-    }
-  )
-
-  IPFS.dht_get = make_ipfs_endpoint("dht/get",
-    reader_json,
-    {{String, Yes},},
-    {
-      ["verbose"]=Bool,
-    }
-  )
-
-  IPFS.dht_provide = make_ipfs_endpoint("dht/provide",
-    reader_json,
-    {{String, Yes},},
-    {
-      ["verbose"]=Bool,
-      ["recursive"]=Bool,
-    }
-  )
-
-  IPFS.dht_put = make_ipfs_endpoint("dht/put",
-    reader_json,
-    {{String, Yes},},
-    {
-      ["verbose"]=Bool,
-    }
-  )
-
   IPFS.dht_query = make_ipfs_endpoint("dht/query",
     reader_json,
     {{String, Yes},},
@@ -934,6 +892,48 @@ return function(tbl)
       ["recursive"]=Bool,
       ["dht-record-count"]=Int,
       ["dht-timeout"]=String,
+    }
+  )
+
+  IPFS.routing_findpeer = make_ipfs_endpoint("routing/findpeer",
+    reader_json,
+    {{String, Yes},},
+    {
+      ["verbose"]=Bool,
+    }
+  )
+
+  IPFS.routing_findprovs = make_ipfs_endpoint("routing/findprovs",
+    reader_json,
+    {{String, Yes},},
+    {
+      ["verbose"]=Bool,
+      ["num-providers"]=Int,
+    }
+  )
+
+  IPFS.routing_get = make_ipfs_endpoint("routing/get",
+    reader_json,
+    {{String, Yes},},
+    {
+      ["verbose"]=Bool,
+    }
+  )
+
+  IPFS.routing_provide = make_ipfs_endpoint("routing/provide",
+    reader_json,
+    {{String, Yes},},
+    {
+      ["verbose"]=Bool,
+      ["recursive"]=Bool,
+    }
+  )
+
+  IPFS.routing_put = make_ipfs_endpoint("routing/put",
+    reader_json,
+    {{String, Yes},},
+    {
+      ["verbose"]=Bool,
     }
   )
 
