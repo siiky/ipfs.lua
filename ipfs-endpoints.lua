@@ -29,6 +29,7 @@ return function(tbl)
       ["hash"]=String,
       ["inline"]=Bool,
       ["inline-limit"]=Int,
+      ["to-files"]=String,
     }
   )
 
@@ -406,9 +407,6 @@ return function(tbl)
     reader_json,
     {{String, Yes},},
     {
-      ["format"]=String,
-      ["hash"]=Bool,
-      ["size"]=Bool,
       ["with-local"]=Bool,
     }
   )
@@ -887,7 +885,7 @@ return function(tbl)
 
   IPFS.resolve = make_ipfs_endpoint("resolve",
     reader_json,
-    {{String, No},},
+    {{String, Yes},},
     {
       ["recursive"]=Bool,
       ["dht-record-count"]=Int,

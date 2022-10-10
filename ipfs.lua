@@ -155,6 +155,7 @@ return function(tbl)
 
     arguments_spec = arguments_spec or {}
     parameters_types = parameters_types or {}
+    parameters_types['offline'] = Bool
 
     local is_required = {}
     local arguments_types = {}
