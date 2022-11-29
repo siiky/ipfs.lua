@@ -859,6 +859,13 @@ return function(tbl)
     }
   )
 
+  IPFS.repo_ls = make_ipfs_endpoint("repo/ls",
+    reader_json,
+    {},
+    {
+    }
+  )
+
   IPFS.repo_stat = make_ipfs_endpoint("repo/stat",
     reader_json,
     {},
@@ -1046,6 +1053,7 @@ return function(tbl)
     reader_plain,
     {{String, Yes},},
     {
+      ["reset"]=Bool,
     }
   )
 
@@ -1085,6 +1093,7 @@ return function(tbl)
     reader_plain,
     {{String, Yes},},
     {
+      ["min-used-limit-perc"]=Int,
     }
   )
 
