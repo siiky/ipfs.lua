@@ -469,15 +469,6 @@ return function(tbl)
     }
   )
 
-  IPFS.key_export = make_ipfs_endpoint("key/export",
-    reader_plain,
-    {{String, Yes},},
-    {
-      ["output"]=String,
-      ["format"]=String,
-    }
-  )
-
   IPFS.key_gen = make_ipfs_endpoint("key/gen",
     reader_json,
     {{String, Yes},},
@@ -1094,13 +1085,6 @@ return function(tbl)
     {{String, Yes},},
     {
       ["min-used-limit-perc"]=Int,
-    }
-  )
-
-  IPFS.update = make_ipfs_endpoint("update",
-    reader_plain,
-    {{String, No},},
-    {
     }
   )
 
