@@ -588,6 +588,14 @@ return function(tbl)
     }
   )
 
+  IPFS.name_inspect = make_ipfs_endpoint("name/inspect",
+    reader_json,
+    {},
+    {
+      ["verify"]=String,
+    }
+  )
+
   IPFS.name_publish = make_ipfs_endpoint("name/publish",
     reader_json,
     {{String, Yes},},
@@ -794,34 +802,6 @@ return function(tbl)
     }
   )
 
-  IPFS.pubsub_ls = make_ipfs_endpoint("pubsub/ls",
-    reader_json,
-    {},
-    {
-    }
-  )
-
-  IPFS.pubsub_peers = make_ipfs_endpoint("pubsub/peers",
-    reader_json,
-    {{String, No},},
-    {
-    }
-  )
-
-  IPFS.pubsub_pub = make_ipfs_endpoint("pubsub/pub",
-    reader_plain,
-    {{String, Yes},},
-    {
-    }
-  )
-
-  IPFS.pubsub_sub = make_ipfs_endpoint("pubsub/sub",
-    reader_json,
-    {{String, Yes},},
-    {
-    }
-  )
-
   IPFS.refs = make_ipfs_endpoint("refs",
     reader_json,
     {{String, Yes},},
@@ -912,7 +892,6 @@ return function(tbl)
     reader_json,
     {{String, Yes},},
     {
-      ["verbose"]=Bool,
     }
   )
 
@@ -929,7 +908,6 @@ return function(tbl)
     reader_json,
     {{String, Yes},},
     {
-      ["verbose"]=Bool,
     }
   )
 
@@ -1040,14 +1018,6 @@ return function(tbl)
     }
   )
 
-  IPFS.swarm_limit = make_ipfs_endpoint("swarm/limit",
-    reader_plain,
-    {{String, Yes},},
-    {
-      ["reset"]=Bool,
-    }
-  )
-
   IPFS.swarm_peering_add = make_ipfs_endpoint("swarm/peering/add",
     reader_json,
     {{String, Yes},},
@@ -1080,11 +1050,10 @@ return function(tbl)
     }
   )
 
-  IPFS.swarm_stats = make_ipfs_endpoint("swarm/stats",
-    reader_plain,
-    {{String, Yes},},
+  IPFS.swarm_resources = make_ipfs_endpoint("swarm/resources",
+    reader_json,
+    {},
     {
-      ["min-used-limit-perc"]=Int,
     }
   )
 
