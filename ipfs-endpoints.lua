@@ -1047,6 +1047,7 @@ return function(tbl)
       ["streams"]=Bool,
       ["latency"]=Bool,
       ["direction"]=Bool,
+      ["identify"]=Bool,
     }
   )
 
