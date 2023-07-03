@@ -908,6 +908,7 @@ return function(tbl)
     reader_json,
     {{String, Yes},},
     {
+      ["allow-offline"]=Bool,
     }
   )
 
