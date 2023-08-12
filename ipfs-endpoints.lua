@@ -593,6 +593,7 @@ return function(tbl)
     {},
     {
       ["verify"]=String,
+      ["dump"]=Bool,
     }
   )
 
@@ -606,6 +607,7 @@ return function(tbl)
       ["ttl"]=String,
       ["key"]=String,
       ["quieter"]=Bool,
+      ["v1compat"]=Bool,
       ["ipns-base"]=String,
     }
   )
