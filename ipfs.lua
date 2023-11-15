@@ -159,7 +159,7 @@ return function(tbl)
 
     local is_required = {}
     local arguments_types = {}
-    for i, tr in pairs(arguments_spec) do
+    for i, tr in ipairs(arguments_spec) do
       table.insert(arguments_types, tr[1])
       table.insert(is_required, tr[2])
     end
