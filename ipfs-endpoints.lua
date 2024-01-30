@@ -516,6 +516,25 @@ return function(tbl)
     }
   )
 
+  IPFS.key_sign = make_ipfs_endpoint("key/sign",
+    reader_json,
+    {},
+    {
+      ["key"]=String,
+      ["ipns-base"]=String,
+    }
+  )
+
+  IPFS.key_verify = make_ipfs_endpoint("key/verify",
+    reader_json,
+    {},
+    {
+      ["key"]=String,
+      ["signature"]=String,
+      ["ipns-base"]=String,
+    }
+  )
+
   IPFS.log_level = make_ipfs_endpoint("log/level",
     reader_json,
     {{String, Yes},{String, Yes},},
@@ -703,6 +722,7 @@ return function(tbl)
     {{String, Yes},},
     {
       ["recursive"]=Bool,
+      ["name"]=String,
     }
   )
 
@@ -713,6 +733,7 @@ return function(tbl)
       ["type"]=String,
       ["quiet"]=Bool,
       ["stream"]=Bool,
+      ["names"]=Bool,
     }
   )
 
